@@ -1,0 +1,50 @@
+参考：Samsung GPIO and Pin Mux/Config controller
+Example 1: A pin-controller node with pin groups.
+    pinctrl_0: pinctrl@11400000 { 
+        compatible = "samsung,exynos4210-pinctrl";
+        reg = <0x11400000 0x1000>;
+        interrupts = <0 47 0>;
+        /* ... */
+        uart0_data: uart0-data { 
+            samsung,pins = "gpa0-0", "gpa0-1";
+            samsung,pin-function = <2>;
+            samsung,pin-pud = <0>;
+            samsung,pin-drv = <0>; 
+        };
+Example 3: A uart client node that supports 'default' and 'flow-control' states.
+    uart@13800000 { 
+        compatible = "samsung,exynos4210-uart";
+        reg = <0x13800000 0x100>;
+        interrupts = <0 52 0>;
+        pinctrl-names = "default", "flow-control;
+        pinctrl-0 = <&uart0_data>;
+        pinctrl-1 = <&uart0_data &uart0_fctl>; 
+    };
+  "samsung,pins" property of the child node. The following pin configuration properties are supported.
+  - samsung,pin-val: Initial value of pin output buffer.
+  - samsung,pin-pud: Pull up/down configuration.
+  - samsung,pin-drv: Drive strength configuration.
+  - samsung,pin-pud-pdn: Pull up/down configuration in power down mode.
+  - samsung,pin-drv-pdn: Drive strength configuration in power down mode.
+
+
+
+
+&pinctrl@11000000 {
+        led_demo: led{
+                samsung,pins = "gpm4-0", "gpm4-1" ,"gpm4-2", "gpm4-3";
+                samsung,pin-function = <0x1>;   //1为输出
+                samsung,pin-pud = <0x0>;        //没有上拉
+                samsung,pin-drv = <0x0>;        //驱动强度？
+        };
+}; 
+
+led_pin {
+    compatible         = "tiny4412,led_demo";
+    pinctrl-names = "led_demo";
+    pinctrl-0 = <&led_demo>;
+    tiny4412,int_gpio1 = <&gpm4 0 GPIO_ACTIVE_HIGH>;
+    tiny4412,int_gpio2 = <&gpm4 1 GPIO_ACTIVE_HIGH>;
+    tiny4412,int_gpio3 = <&gpm4 2 GPIO_ACTIVE_HIGH>;
+    tiny4412,int_gpio4 = <&gpm4 3 GPIO_ACTIVE_HIGH>;
+};
