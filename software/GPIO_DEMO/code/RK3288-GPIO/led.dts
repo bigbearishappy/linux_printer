@@ -1,5 +1,5 @@
 BBear-led{
-	compatible = "BBear, led";
+	compatible = "bbear,BBear-led-module";
 	led-ctl = <gpio8 GPIOA2 GPIO_ACTIVE_LOW>;
 	status = "okey";
 };
