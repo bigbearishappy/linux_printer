@@ -17,11 +17,15 @@ int GPIO_test(int cmd){
 		return -1;
 	}
 	
-	if(cmd){
+	switch(cmd){
+		case 0:
 		OsLedReset();
-	}
-	else{
+		break;
+		case 1:
 		OsLedTwinkle();
+		break;
+		default:
+		break;
 	}
 	
 	OsLedClose();
