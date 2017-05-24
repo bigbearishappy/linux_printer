@@ -7,12 +7,13 @@
 
 struct led_module_platform_data{
 	int led_pin;
-}
+};
 
 struct led_module_data{
 	int led_pin;
 	int open_flag;
 	struct miscdevice *misc_dev;
+	struct spi_device *spi_dev;
 };
 
 #endif

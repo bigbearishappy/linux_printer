@@ -19,7 +19,9 @@
 #include <sys/time.h>
 #include <time.h>
 
-#define LED_MODULE "/dev/bbear-led-module"
+#include "led.h"
+
+#define LED_MODULE "/dev/BBear-led-module"
 
 static int gPrnFd = -1;
 
@@ -28,7 +30,7 @@ int OsLedOpen(void)
 	int fd;
 	
 	if(gPrnFd > 0){
-		LOGE("Already opened")
+		LOGE("Already opened");
 		return RET_OK;
 	}
 	

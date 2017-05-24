@@ -1,5 +1,5 @@
 #
-# Makefile for kernel Printer module drivers.
+# Makefile for kernel Printer power module drivers.
 #
 
-#obj-$(CONFIG_PAX_PRINTER_MODULE) += led_module_linux.o led_module.o
+obj-$(CONFIG_PRINTER_POWER_MODULE) += led_module_linux.o led_module.o

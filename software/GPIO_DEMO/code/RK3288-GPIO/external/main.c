@@ -32,7 +32,7 @@ int GPIO_test(int cmd){
 	return 0;
 }
 
-int main(int argc, char *argc[]){
+int main(int argc, char *argv[]){
 	if(argc < 2){
 		printf("enter the cmd");
 		return -1;
@@ -40,9 +40,9 @@ int main(int argc, char *argc[]){
 	else
 		GPIO_test(atoi(argv[1]));
 	
-	printf("GPIO_TEST");
-	printf("1 change the GPIO H->L->H");
-	printf("0 change the GPIO H->L->H->L->H->H->L");
+	printf("GPIO_TEST\n");
+	printf("0 change the GPIO H->L->H\n");
+	printf("1 change the GPIO H->L->H->L->H->H->L\n");
 	
 	return 0;
 }

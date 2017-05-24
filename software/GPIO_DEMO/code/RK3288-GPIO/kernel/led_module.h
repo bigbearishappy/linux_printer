@@ -5,18 +5,18 @@
 #include <linux/ioctl.h>
 #include <linux/spi/spi.h>
 
-#define DEBUG_PRT
-#ifdef DEBUG_PRT
+#define DEBUG_LED
+#ifdef DEBUG_LED
 
 #define log(...) do{\
-	printk("PRT<%d><%s>", __LINE__, __FUNCTION__);\
+	printk("LED<%d><%s>", __LINE__, __FUNCTION__);\
 	printk(__VA_ARGS__);\
 	printk("\r\n");\
 }while(0)
 
 #define logHex(s, l, ...)do{\
 	int i;\
-	printk("PRT<%d><%s>", __LINE__, __FUNCTION__);\
+	printk("LED<%d><%s>", __LINE__, __FUNCTION__);\
 	printk(__VA_ARGS__);\
 	for(i=0; i<l; i++) printk("<%02X>", s[i]);\
 	printk("\r\n");\
@@ -28,13 +28,13 @@
 #endif
 
 #define log_err(...) do{\
-	printk(KERN_ERR"PRT<%d><%s>", __LINE__, __FUNCTION__);\
+	printk(KERN_ERR"LED<%d><%s>", __LINE__, __FUNCTION__);\
 	printk(__VA_ARGS__);\
 	printk("\r\n");\
 }while(0)
 	
 #define DEV_NAME "BBear-led-module"
-#define BBEARLED_MAGIC_NUMBER	247
+#define BBEARLED_MAGIC_NUMBER	246
 
 #define IOCTL_LEDM_RESET			_IO(BBEARLED_MAGIC_NUMBER, 0)
 #define IOCTL_LEDM_TWINKLE			_IO(BBEARLED_MAGIC_NUMBER, 1)

@@ -27,7 +27,7 @@
 #include "led_module_linux.h"
 #include "led_module.h"
 
-struct led_module_data *ledm;
+extern struct led_module_data *ledm;
 
 static void ledm_power_ctl(int status)
 {
@@ -79,8 +79,11 @@ long led_module_ioctl(struct file *file, unsigned int cmd, unsigned long arg)
 
 int led_module_open(struct file *file)
 {
+	log("into led_module_open");
 	ledm->open_flag++;
+	log("af open_flag");
 	gpio_set_value(ledm->led_pin, 1);
+	log("af set_value");
 	return 0;
 }
 
@@ -88,7 +91,7 @@ void led_module_close(struct file *file)
 {
 	if(ledm->open_flag > 1)
 		ledm->open_flag--;
-	gpio_set_value(ledm->led_pin, 0);
+	//gpio_set_value(ledm->led_pin, 0);
 	
 	ledm->open_flag = 0;
 }
