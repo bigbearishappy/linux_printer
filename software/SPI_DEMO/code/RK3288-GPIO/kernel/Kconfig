@@ -1,0 +1,5 @@
+config	PRINTER_POWER_MODULE
+	bool "PRINTER POWER MODULE support"
+	default y
+	help
+		Enable PRINTER POWER MODULE support

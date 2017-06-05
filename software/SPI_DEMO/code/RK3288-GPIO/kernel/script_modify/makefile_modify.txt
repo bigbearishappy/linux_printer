@@ -1,0 +1,4 @@
+1 add the following code into the Makefile of the same catalog with Printer_powerctl
+obj-$(CONFIG_PRINTER_POWER_MODULE)		+= printer_powerctl/
+if this code does not work,try this:
+#obj-y		+= printer_powerctl/

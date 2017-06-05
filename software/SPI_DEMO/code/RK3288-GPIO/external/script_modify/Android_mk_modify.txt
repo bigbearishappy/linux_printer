@@ -1,0 +1,16 @@
+in order to control the power pin in the adb command
+add the following code into the Android.mk
+line17:
+LOCAL_SRC_FILES += device/printer_powerctl/led.c
+
+line174-line179:
+include $(CLEAR_VARS)
+LOCAL_C_INCLUDES := $(LOCAL_PATH)/device/include
+LOCAL_SRC_FILES :=  bin/printer_powerctl/main.c
+
+LOCAL_SHARED_LIBRARIES := libpaxdevice
+LOCAL_LDLIBS := -llog 
+LOCAL_MODULE := printer_powerctl_test
+include $(BUILD_EXECUTABLE)
+
+after add this code,we can debug in adb with the command printer_powerctl_test

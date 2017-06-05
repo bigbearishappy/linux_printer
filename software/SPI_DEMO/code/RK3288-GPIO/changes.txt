@@ -1,0 +1,4 @@
+20170605
+1 kernel初始化中添加对spi接口的初始化
+2 发送数据使用spi_write
+3 由用户空间想内核发送数据使用copy_from_user

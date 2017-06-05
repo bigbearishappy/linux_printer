@@ -1,0 +1,25 @@
+BBear-led{
+	compatible = "bbear,BBear-led-module";
+	led-ctl = <gpio8 GPIOA2 GPIO_ACTIVE_LOW>;
+	status = "okey";
+};
+
+	printer-module@20 {
+			compatible = "pax,printer-module";
+			reg = <0>;
+			spi-max-frequency = <1000000>;
+		//	spi-cpha;
+		//	spi-cpol;
+	        	poll_mode = <0>;
+	        	type = <0>;
+			enable_dma = <0>;		
+			
+			//pax,prt-pwr-gpio = <&gpio8 GPIO_A0 GPIO_ACTIVE_HIGH>;
+			pax,prt-pwr-gpio = <&gpio8 GPIO_A2 GPIO_ACTIVE_HIGH>;
+			//pax,prt-s2a-gpio =  <&gpio8 GPIO_A0 GPIO_ACTIVE_HIGH>;
+//			pax,prt-s2a-gpio =  <&gpio8 GPIO_A1 GPIO_ACTIVE_HIGH>;
+//			pax,prt-a2s-gpio = <&gpio8 GPIO_A0 GPIO_ACTIVE_HIGH>;
+			//pax,prt-a2s-gpio = <&gpio7 GPIO_B6 GPIO_ACTIVE_HIGH>;
+			//pax,prt-a2s-gpio = <&gpio5 GPIO_B6 GPIO_ACTIVE_HIGH>;   //only 1.8v
+			//irq_gpio = <&gpio8 GPIO_A0 IRQ_TYPE_EDGE_RISING>;
+		};	
