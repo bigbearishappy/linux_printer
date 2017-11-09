@@ -1,0 +1,3 @@
+source "drivers/misc/pax/printer_powerctl/Kconfig"
+source "drivers/misc/pax/PosVcom/Kconfig"
+source "drivers/misc/pax/fingerprint/Kconfig"

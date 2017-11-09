@@ -1,0 +1,2 @@
+1 add the following code into the Kconfig file which is at the same catalog with Printer_powerctl/
+source "drivers/misc/pax/printer_powerctl/Kconfig"
